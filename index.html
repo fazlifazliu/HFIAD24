@@ -1,11 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>omron</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-container">
+        <img src="./img/OMRON_Logo 1.svg" alt="omron logo" class="logo" />
+        <img src="./img/Burger Menu.svg" alt="menu icon" class="menu-icon" />
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <img
+            src="./img/Picture.png"
+            alt="Woman working with automation equipment"
+            class="hero-image"
+          />
+
+          <h1>Shaping the Future</h1>
+          <p class="body-large">Industrial automation and intelligent control systems driving global manufacturing.</p>
+          <p>We empower industries worldwide to innovate sustainably through intelligent automation and advanced control technologies.</p>
+
+          <a href="#business_section" class="btn btn-primary" role="button">Explore Business Areas</a>
+        </div>
+      </section>
+
+      <section class="about">
+        <div class="container">
+          <img src="img/Omron-Headquarter.png" alt="Omron Headquarters" class="about-image" />
+          <div class="about-panel">
+            <h2>About Omron</h2>
+            <p class="body-large">Omron is a global technology company founded in 1933 in Kyoto, Japan.</p>
+            <p>It specializes in industrial automation, electronic components and healthcare solutions.</p>
+
+            <div class="about-meta">
+              <p class="body-small">Founded in 1933</p>
+              <p class="body-small">Headquartered in Kyoto, Japan</p>
+              <p class="body-small">Operating worldwide</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="business_section" class="business-areas">
+        <div class="container">
+          <h2>Our Business Areas</h2>
+
+          <div class="business-cards">
+            <article class="card">
+              <div class="card-media" style="background: url('./img/Picture.png') lightgray 50% / cover no-repeat;"></div>
+              <h3 class="card-title">Industrial Automation</h3>
+              <p class="card-text">Advanced automation solutions including sensors, controllers, robotics and safety systems for modern manufacturing environments.</p>
+            </article>
+
+            <article class="card">
+              <div class="card-media" style="background: url('./img/Healthcare.png') lightgray 50% / cover no-repeat;"></div>
+              <h3 class="card-title">Healthcare</h3>
+              <p class="card-text">Innovative blood pressure monitors, respiratory therapy devices and remote patient monitoring solutions for personal and professional healthcare.</p>
+            </article>
+
+            <article class="card">
+              <div class="card-media" style="background: url('./img/Components.png') lightgray 50% / cover no-repeat;"></div>
+              <h3 class="card-title">Electronic components</h3>
+              <p class="card-text">High-quality relays, switches and electronic components used in automotive, industrial and consumer applications worldwide.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="vision_section" class="vision">
+        <div class="vision-content container">
+          <h3 class="vision-subtitle">Our Vision</h3>
+          <h2 class="vision-title">Sustainable Innovation</h2>
+          <a href="#business_section" class="btn btn-primary" role="button">Read More</a>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
