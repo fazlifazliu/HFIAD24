@@ -22,18 +22,19 @@ body {
   box-sizing: border-box;
 }
 
-.about-image {
+.about-image img {
   width: 100%;
   display: block;
   height: auto;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .about-text {
-  width: 100%;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
   gap: 12px;
 }
 
@@ -85,7 +86,7 @@ body {
   height: auto;
   display: block;
   border-radius: 6px;
-  max-height: 60vh;
+  max-height: 50vh;
   overflow: hidden;
   aspect-ratio: 1 / 1;
 }
@@ -251,6 +252,8 @@ h3,
   align-items: center;
   justify-content: center;
   color: #ffffff;
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 .vision::before {
@@ -353,7 +356,9 @@ h3,
      ----------------------------- */
   .hero .container {
     display: flex;
-    grid-template-columns: 1fr 1fr;
+    width: 1200px;
+    height: 800px;
+    grid-template-columns: 0.4fr 0.6fr;
     gap: 12px;
     align-items: center;
     flex-direction: row;
@@ -365,7 +370,7 @@ h3,
 
   .hero .hero-image {
     width: 100%;
-    height: 420px; /* fixed visual height for desktop hero */
+    max-height: 80vh; /* fixed visual height for desktop hero */
     object-fit: cover;
     border-radius: 8px;
   }
@@ -387,10 +392,18 @@ h3,
     display: grid;
     grid-template-columns: 0.45fr 0.55fr; /* image left, text right */
     gap: 40px;
-    align-items: start;
+    align-items: center;
     padding: 64px 48px;
+    margin-bottom: 80px;
   }
 
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    justify-content: center;
+  }
   .about-image {
     height: 420px;
     width: 100%;
@@ -436,7 +449,7 @@ h3,
      Desktop: Vision
      ----------------------------- */
   .vision {
-    min-height: 480px;
+    min-height: 800px;
     background-position: center right;
   }
 
@@ -541,7 +554,6 @@ h3,
 
 .footer-stripe {
   height: 32px; /* stripe height from Figma */
-  margin-top: 16px;
   margin-bottom: 16px;
   position: relative;
   overflow: hidden;
