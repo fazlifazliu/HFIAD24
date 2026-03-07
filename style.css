@@ -1,14 +1,39 @@
+:root {
+  --color-primary: #166fc0;
+  --color-text: #000000;
+  --color-border: #e5e5e5;
+  --color-muted: rgba(0, 0, 0, 0.6);
+  --font-base: "Avenir Next", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 16px;
+  background: var(--color-primary);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 9999;
+}
+
+.skip-link:focus {
+  left: 16px;
+}
+
 body {
-  font-family:
-    "Avenir Next",
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
+  font-family: var(--font-base);
 }
 
 .logo {
   height: 22px;
   width: auto;
+}
+
+.main-nav {
+  display: none;
 }
 
 /* About (mobile) */
@@ -40,12 +65,12 @@ body {
 
 .about-text h2 {
   margin: 0;
-  color: #000000;
+  color: var(--color-text);
 }
 
 .about-text p {
   margin: 0;
-  color: #000000;
+  color: var(--color-text);
 }
 
 .about-meta {
@@ -103,6 +128,17 @@ body {
   width: 28px;
   height: auto;
   cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.menu-icon img {
+  width: 28px;
+  height: auto;
+  display: block;
 }
 
 /* Desktop header rules merged into main desktop block further below */
@@ -113,9 +149,6 @@ h1 {
   font-size: 34px;
   line-height: 1.2;
   font-weight: 700;
-}
-/* reset default heading margin so gaps/padding control spacing */
-h1 {
   margin: 0;
 }
 
@@ -152,7 +185,7 @@ h3,
 .body-large,
 .body-small,
 .caption {
-  color: #000000;
+  color: var(--color-text);
 }
 
 .btn {
@@ -161,19 +194,11 @@ h3,
   padding: 12px 20px;
   align-items: center;
   gap: 8px;
-  /* Mobile/Button */
   color: #ffffff;
-  font-family:
-    "Avenir Next",
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
   font-size: 14px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
   border-radius: 8px;
-  background: var(--Primary, #166fc0);
+  background: var(--color-primary);
   text-decoration: none;
   cursor: pointer;
 }
@@ -187,9 +212,20 @@ h3,
   transition: transform 0.18s ease;
 }
 
+.btn:hover {
+  background: #0a3762;
+}
 .btn:hover::after,
 .btn:focus::after {
   transform: translateX(4px);
+}
+.btn:active {
+  background: #0f5090;
+  transform: translateY(1px);
+}
+.btn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
 }
 
 /* Desktop typography merged into main desktop block further below */
@@ -210,7 +246,7 @@ h3,
   gap: 8px;
   align-self: stretch;
   border-radius: 6px;
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--color-border);
   background: #ffffff;
   /* Make three columns on larger screens */
   flex: 1 1 260px;
@@ -231,6 +267,16 @@ h3,
   margin-bottom: 8px;
 }
 
+.card-media--automation {
+  background-image: url("./img/Picture.png");
+}
+.card-media--healthcare {
+  background-image: url("./img/Healthcare.png");
+}
+
+.card-media--components {
+  background-image: url("./img/Components.png");
+}
 .card-title {
   margin: 0;
   font-size: 18px;
@@ -239,7 +285,7 @@ h3,
 
 .card-text {
   margin: 0;
-  color: #000000;
+  color: var(--color-text);
   font-size: 14px;
 }
 
@@ -260,7 +306,7 @@ h3,
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6); /* 60% dark overlay */
+  background: var(--color-muted); /* 60% dark overlay */
   z-index: 0;
 }
 
@@ -280,17 +326,9 @@ h3,
 
 .vision-title {
   margin: 0;
-  /* Mobile/H2: Sustainable Innovation */
   color: #ffffff;
-  font-family:
-    "Avenir Next",
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
   font-size: 22px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
 }
 
 .vision-subtitle {
@@ -321,7 +359,7 @@ h3,
     font-size: 22px;
   }
 
-  .body-large {
+  .body-large .navigation {
     font-size: 18px;
   }
 
@@ -333,6 +371,52 @@ h3,
      Desktop: Header & Container
      ----------------------------- */
   /* header alignment and hide mobile menu icon */
+
+ .main-nav {
+  display: flex;
+  height: 56px;
+  padding: 0px 48px;
+  align-items: center;
+  gap: 40px;
+  border-top: 1px solid var(--color-border);
+}
+
+.nav-list {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-list a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width 0.2s ease;
+}
+
+.nav-list a:hover {
+  color: var(--color-primary);
+}
+
+.nav-list a:hover::after {
+  width: 100%;
+}
+
   .header-container {
     justify-content: flex-start;
     gap: 24px;
@@ -538,18 +622,10 @@ h3,
 }
 
 .footer-links a {
-  color: #000000;
+  color: var(--color-text);
   text-decoration: none;
-  /* Mobile / Body Small */
-  font-family:
-    "Avenir Next",
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
 }
 
 .footer-stripe {
@@ -576,18 +652,8 @@ h3,
 
 .footer-copy {
   text-align: center;
-  color: rgba(0, 0, 0, 0.6);
-  /* Mobile/Body Small */
-  font-family:
-    "Avenir Next",
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
+  color: var(--color-muted);
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
   margin: 0;
 }
-
-/* Footer desktop tweaks merged into main desktop block further below */

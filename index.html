@@ -11,14 +11,31 @@
     />
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
     <header class="header">
       <div class="header-container">
         <img src="./img/OMRON_Logo 1.svg" alt="omron logo" class="logo" />
-        <img src="./img/Burger Menu.svg" alt="menu icon" class="menu-icon" />
+        <button
+          class="menu-icon"
+          aria-label="Menü öffnen"
+          aria-expanded="false"
+        >
+          <img src="./img/Burger Menu.svg" alt="" />
+        </button>
       </div>
+      <nav class="main-nav" role="navigation" aria-label="Primary navigation">
+        <ul class="nav-list" role="list">
+          <li><a href="#">News</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#business_section">Business Areas</a></li>
+          <li><a href="#vision_section">Vision</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main>
+      <main id="main-content">
       <section class="hero">
         <div class="container">
           <div class="hero-image">
@@ -46,7 +63,7 @@
       </section>
 
       <section class="about">
-        <div class="container">
+        <div class="container" id="about">
           <div class="about-image">
             <img src="img/Omron-Headquarter.png" alt="Omron Headquarters" />
           </div>
@@ -77,13 +94,8 @@
 
           <div class="business-cards">
             <article class="card">
-              <div
-                class="card-media"
-                style="
-                  background: url(&quot;./img/Picture.png&quot;) lightgray 50% /
-                    cover no-repeat;
-                "
-              ></div>
+              <div class="card-media card-media--automation"></div>
+
               <h3 class="card-title">Industrial Automation</h3>
               <p class="card-text">
                 Advanced automation solutions including sensors, controllers,
@@ -93,13 +105,8 @@
             </article>
 
             <article class="card">
-              <div
-                class="card-media"
-                style="
-                  background: url(&quot;./img/Healthcare.png&quot;) lightgray
-                    50% / cover no-repeat;
-                "
-              ></div>
+              <div class="card-media card-media--healthcare"></div>
+
               <h3 class="card-title">Healthcare</h3>
               <p class="card-text">
                 Innovative blood pressure monitors, respiratory therapy devices
@@ -109,13 +116,8 @@
             </article>
 
             <article class="card">
-              <div
-                class="card-media"
-                style="
-                  background: url(&quot;./img/Components.png&quot;) lightgray
-                    50% / cover no-repeat;
-                "
-              ></div>
+              <div class="card-media card-media--components"></div>
+
               <h3 class="card-title">Electronic components</h3>
               <p class="card-text">
                 High-quality relays, switches and electronic components used in
@@ -135,36 +137,36 @@
           >
         </div>
       </section>
+    </main>
 
-      <!-- Site footer: socials, links panel, hatched stripe and copyright -->
-      <footer class="site-footer">
-        <div class="container">
-          <div class="footer-panel">
-            <div class="footer-socials" aria-label="Social links">
-              <a href="#" class="social" aria-label="Facebook"
-                ><img src="./img/Footer/Link - facebook.png" alt="Facebook"
-              /></a>
-              <a href="#" class="social" aria-label="YouTube"
-                ><img src="./img/Footer/Link - youtube.png" alt="YouTube"
-              /></a>
-              <a href="#" class="social" aria-label="LinkedIn"
-                ><img src="./img/Footer/Link - linkedin.png" alt="LinkedIn"
-              /></a>
-            </div>
-
-            <ul class="footer-links" role="list">
-              <li><a href="#">Corporate</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms of Use</a></li>
-              <li><a href="#">Cookie Policy</a></li>
-            </ul>
+    <!-- Site footer: socials, links panel, hatched stripe and copyright -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-panel">
+          <div class="footer-socials" aria-label="Social links">
+            <a href="#" class="social" aria-label="Facebook"
+              ><img src="./img/Footer/Link - facebook.png" alt="Facebook"
+            /></a>
+            <a href="#" class="social" aria-label="YouTube"
+              ><img src="./img/Footer/Link - youtube.png" alt="YouTube"
+            /></a>
+            <a href="#" class="social" aria-label="LinkedIn"
+              ><img src="./img/Footer/Link - linkedin.png" alt="LinkedIn"
+            /></a>
           </div>
 
-          <p class="footer-copy">
-            © 2026 OMRON Corporation<br />All Rights Reserved.
-          </p>
+          <ul class="footer-links" role="list">
+            <li><a href="#">Corporate</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+          </ul>
         </div>
-      </footer>
-    </main>
+
+        <p class="footer-copy">
+          © 2026 OMRON Corporation<br />All Rights Reserved.
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
