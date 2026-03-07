@@ -36,6 +36,10 @@ body {
   display: none;
 }
 
+.header-actions {
+  display: none;
+}
+
 /* About (mobile) */
 .about .container {
   display: flex;
@@ -372,55 +376,93 @@ h3,
      ----------------------------- */
   /* header alignment and hide mobile menu icon */
 
- .main-nav {
-  display: flex;
-  height: 56px;
-  padding: 0px 48px;
-  align-items: center;
-  gap: 40px;
-  border-top: 1px solid var(--color-border);
-}
+  .header-actions {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 12px; /* space between language switcher and search bar */
+  }
 
-.nav-list {
-  display: flex;
-  gap: 40px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+  .language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--color-primary);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+  }
 
-.nav-list a {
-  text-decoration: none;
-  color: var(--color-text);
-  font-size: 14px;
-  font-weight: 500;
-  position: relative;
-  padding-bottom: 4px;
-}
+  .language-switcher svg {
+    color: var(--color-primary);
+  }
 
-.nav-list a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: var(--color-primary);
-  transition: width 0.2s ease;
-}
+  .search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-primary);
+    border-radius: 6px;
+    overflow: hidden;
+  }
 
-.nav-list a:hover {
-  color: var(--color-primary);
-}
+  .search-bar input {
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    width: 200px;
+    font-family: var(--font-base);
+  }
+  nav {
+    display: flex;
+    height: 56px;
+    padding: 0px 48px;
+    align-items: center;
+    gap: 40px;
+    border-top: 1px solid var(--color-border);
+  }
 
-.nav-list a:hover::after {
-  width: 100%;
-}
+  .nav-list {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-list a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 4px;
+  }
+
+  .nav-list a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width 0.2s ease;
+  }
+
+  .nav-list a:hover {
+    color: var(--color-primary);
+  }
+
+  .nav-list a:hover::after {
+    width: 100%;
+  }
 
   .header-container {
+    display: flex;
     justify-content: flex-start;
     gap: 24px;
-    padding: 20px 48px;
+    padding: 12px 48px;
     align-items: center;
   }
 
