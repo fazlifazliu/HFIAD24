@@ -5,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>omron</title>
     <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"
-    />
   </head>
   <body>
-    <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header class="header">
       <div class="header-container">
         <img src="./img/OMRON_Logo 1.svg" alt="omron logo" class="logo" />
@@ -64,18 +60,42 @@
             <span>Language</span>
           </div>
           <div class="search-bar">
-            <input type="search" placeholder="Search Keywords" />
+            <input
+              type="search"
+              placeholder="Search Keywords"
+              aria-label="Search"
+            />
+            <button aria-label="Search">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </button>
           </div>
         </div>
         <button
           class="menu-icon"
-          aria-label="Menü öffnen"
+          aria-label="Open menu"
           aria-expanded="false"
+          aria-controls="primary-navigation"
         >
-          <img src="./img/Burger Menu.svg" alt="" />
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
-      <nav class="main-nav" role="navigation" aria-label="Primary navigation">
+      <nav
+        class="main-nav"
+        id="primary-navigation"
+        aria-label="Primary navigation"
+      >
         <ul class="nav-list" role="list">
           <li><a href="#">News</a></li>
           <li><a href="#about">About</a></li>
@@ -84,6 +104,8 @@
           <li><a href="#">Careers</a></li>
         </ul>
       </nav>
+
+      <div class="nav-overlay"></div>
     </header>
 
     <main id="main-content">
@@ -219,5 +241,75 @@
         </p>
       </div>
     </footer>
+    <button class="scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script>
+      const menuButton = document.querySelector(".menu-icon");
+      const navigation = document.querySelector(".main-nav");
+      const navLinks = document.querySelectorAll(".nav-list a");
+      const navOverlay = document.querySelector(".nav-overlay");
+      const scrollTopButton = document.querySelector(".scroll-top");
+
+      // Toggle mobile menu
+      menuButton.addEventListener("click", function () {
+        const isOpen = navigation.classList.toggle("is-open");
+        navOverlay.classList.toggle("is-open");
+        menuButton.classList.toggle("is-open");
+        document.body.classList.toggle("menu-open");
+        menuButton.setAttribute("aria-expanded", isOpen);
+      });
+
+      // Close menu when clicking a navigation link
+      navLinks.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+          const targetId = this.getAttribute("href");
+
+          this.classList.add("is-tapped");
+
+          setTimeout(() => {
+            this.classList.remove("is-tapped");
+
+            navigation.classList.remove("is-open");
+            navOverlay.classList.remove("is-open");
+            menuButton.classList.remove("is-open");
+            document.body.classList.remove("menu-open");
+            menuButton.setAttribute("aria-expanded", "false");
+
+            if (targetId && targetId.startsWith("#")) {
+              document.querySelector(targetId)?.scrollIntoView({
+                behavior: "smooth",
+              });
+            }
+          }, 180);
+        });
+      });
+
+      // Close menu when clicking on overlay
+      navOverlay.addEventListener("click", function () {
+        navigation.classList.remove("is-open");
+        navOverlay.classList.remove("is-open");
+        menuButton.classList.remove("is-open");
+        document.body.classList.remove("menu-open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+
+      // Show scroll-to-top button when scrolling down
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 300) {
+          scrollTopButton.classList.add("is-visible");
+        } else {
+          scrollTopButton.classList.remove("is-visible");
+        }
+      });
+
+      // Scroll smoothly back to top
+      scrollTopButton.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    </script>
   </body>
 </html>
