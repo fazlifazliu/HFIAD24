@@ -596,9 +596,9 @@ h3,
      ----------------------------- */
   .hero .container {
     display: flex;
-    width: 1200px;
-    height: 800px;
-    gap: 12px;
+    width: 100%;
+    min-height: 600px;
+    gap: 48px;
     align-items: center;
     flex-direction: row;
   }
