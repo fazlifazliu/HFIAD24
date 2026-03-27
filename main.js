@@ -51,7 +51,7 @@
 
       // Show scroll-to-top button when scrolling down
       window.addEventListener("scroll", function () {
-        if (window.scrollY > 300) {
+        if (window.scrollY > 150) {
           scrollTopButton.classList.add("is-visible");
         } else {
           scrollTopButton.classList.remove("is-visible");
