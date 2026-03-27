@@ -24,6 +24,7 @@
 }
 
 body {
+  margin: 0;
   font-family: var(--font-base);
 }
 
@@ -31,6 +32,8 @@ body {
   height: 22px;
   width: auto;
 }
+
+/* Mobile off-canvas navigation panel */
 
 .main-nav {
   position: fixed;
@@ -48,6 +51,8 @@ body {
 .main-nav.is-open {
   transform: translateX(0);
 }
+
+/* Mobile off-canvas navigation overlay */
 
 .nav-overlay {
   position: fixed;
@@ -79,7 +84,7 @@ body {
   font-size: 16px;
   font-weight: 500;
   transition:
-    transform 0.5s ease,
+    transform 0.3s ease,
     opacity 0.15s ease,
     color 0.15s ease;
 }
@@ -100,7 +105,6 @@ body {
   display: none;
 }
 
-/* About (mobile) */
 .about .container {
   display: flex;
   padding: 48px 16px;
@@ -179,13 +183,14 @@ body {
   aspect-ratio: 1 / 1;
 }
 
-/* Header layout: mobile-first - logo left, burger menu right */
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
 }
+
+/* Prevent background scrolling when mobile menu is open */
 
 body.menu-open {
   overflow: hidden;
@@ -229,10 +234,9 @@ body.menu-open {
   transform: translateY(-10px) rotate(-45deg);
 }
 
-/* Desktop header rules merged into main desktop block further below */
-
-/* ===== MOBILE TYPOGRAPHY ===== */
-
+/* -----------------------------
+     Mobile: Typography
+     ----------------------------- */
 h1 {
   font-size: 34px;
   line-height: 1.2;
@@ -291,7 +295,6 @@ h3,
   cursor: pointer;
 }
 
-/* add a chevron/arrow at the end of button text */
 .btn::after {
   content: ">";
   display: inline-block;
@@ -316,19 +319,17 @@ h3,
   outline-offset: 3px;
 }
 
-/* Desktop typography merged into main desktop block further below */
-
 /* Business cards */
 .business-cards {
   display: flex;
-  gap: 24px; /* use 24px gap like Figma */
+  gap: 24px;
   margin-top: 16px;
   flex-wrap: wrap;
 }
 
 .card {
   display: flex;
-  padding: 16px; /* increased padding to match Figma */
+  padding: 16px;
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
@@ -336,16 +337,14 @@ h3,
   border-radius: 6px;
   border: 1px solid var(--color-border);
   background: #ffffff;
-  /* Make three columns on larger screens */
   flex: 1 1 260px;
   min-width: 220px;
 }
 
-/* Card media (image) */
 .card-media {
   height: 160px;
   align-self: stretch;
-  border-radius: 6px; /* slightly larger radius to match Figma */
+  border-radius: 6px;
   background-color: lightgray;
   background-position: 50%;
   background-size: cover;
@@ -377,11 +376,10 @@ h3,
   font-size: 14px;
 }
 
-/* Vision section: background image with 60% dark overlay and centered content */
 .vision {
   position: relative;
   background: url("./img/Vision.webp") center/cover no-repeat;
-  min-height: 800px; /* mobile: 800px as requested */
+  min-height: 800px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -406,7 +404,6 @@ h3,
   flex-direction: column;
   gap: 12px;
   align-items: flex-start;
-  /* start ~19px from the left edge */
   padding: 40px 19px;
   width: 100%;
   box-sizing: border-box;
@@ -428,9 +425,6 @@ h3,
   letter-spacing: 0.02em;
 }
 
-/* Vision desktop sizing merged into main desktop block further below */
-
-/* Desktop layout rules (1024px+) - consolidated and grouped for maintainability */
 @media (min-width: 1024px) {
   /* -----------------------------
      Desktop: Typography
@@ -458,13 +452,12 @@ h3,
   /* -----------------------------
      Desktop: Header & Container
      ----------------------------- */
-  /* header alignment and hide mobile menu icon */
 
   .header-actions {
     display: flex;
     align-items: center;
     margin-left: auto;
-    gap: 12px; /* space between language switcher and search bar */
+    gap: 12px;
   }
 
   .language-switcher {
@@ -513,6 +506,8 @@ h3,
     width: 20px;
     height: 20px;
   }
+  
+/* Reset mobile off-canvas navigation for desktop layout */
 
   .main-nav {
     display: flex;
@@ -584,7 +579,6 @@ h3,
     display: none;
   }
 
-  /* widen main content container */
   .container {
     max-width: 1100px;
     padding-left: 48px;
@@ -609,7 +603,7 @@ h3,
 
   .hero .hero-image {
     width: 100%;
-    max-height: 80vh; /* fixed visual height for desktop hero */
+    max-height: 80vh;
     object-fit: cover;
     border-radius: 8px;
   }
@@ -629,7 +623,7 @@ h3,
      ----------------------------- */
   .about .container {
     display: grid;
-    grid-template-columns: 0.45fr 0.55fr; /* image left, text right */
+    grid-template-columns: 0.45fr 0.55fr;
     gap: 40px;
     align-items: center;
     padding: 64px 48px;
@@ -666,7 +660,7 @@ h3,
 
   .card {
     padding: 28px;
-    min-height: 360px; /* encourage cards to align vertically */
+    min-height: 360px;
     border-radius: 8px;
   }
 
@@ -685,7 +679,7 @@ h3,
 
   .vision .vision-content {
     max-width: 520px;
-    padding-left: 96px; /* increase left offset for desktop */
+    padding-left: 96px;
   }
 
   .vision-title {
@@ -714,7 +708,6 @@ h3,
   }
 }
 
-/* ===== Footer (mobile-first) ===== */
 .site-footer {
   padding-top: 24px;
   padding-bottom: 48px;
@@ -728,13 +721,13 @@ h3,
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px; /* social row -> links list spacing (matches Figma 32px) */
+  gap: 32px;
   box-sizing: border-box;
 }
 
 .footer-socials {
   display: flex;
-  gap: 24px; /* space between social circles */
+  gap: 24px;
   align-items: center;
   justify-content: center;
 }
@@ -763,7 +756,7 @@ h3,
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px; /* distance between items */
+  gap: 16px;
   align-items: center;
 }
 
